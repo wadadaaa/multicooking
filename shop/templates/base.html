@@ -1,5 +1,4 @@
-{% load static %}
-
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -44,7 +43,7 @@
                         <a href="{% url 'product_list' %}">Мультиварки</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+{#                        <a href="#">Contact</a>#}
                     </li>
                 </ul>
             </div>
@@ -54,7 +53,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="padding-top: 70px;">
 
         {% block jumbotron %}
         {% endblock %}
