@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title %} &bull; Product List{% endblock %}
+
+{% block content %}
+
+<!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Мультиварки МАРТА</p>
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">{{ product.catalog }}</a>
+                    <a href="tel:0549438101" class="list-group-item">Заказать
+                        <span class="glyphicon glyphicon-phone-alt"></span> 0549438101</a>
+                    <a href="#" class="list-group-item success">Цена {{ product.sale_price }} ₪</a>
+                    <a href="{% url 'product_list' %}" class="list-group-item">Посмотреть другие модели</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="{{ product.image|thumbnail_url:'large' }}">
+                    <div class="caption-full">
+                        <h4 class="text-center"><mark>{{ product.name }}</mark></h4>
+                        <h3 class="text-center text-danger">обычная цена <del>{{ product.price }} ₪ </del></h3>
+                        <h3 class="text-center text-primary">цена для вас {{ product.sale_price }} ₪</h3>
+
+                        <p>{{ product.full_info }}</p>
+                    </div>
+                    <div class="ratings text-danger">
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            оценка покупателей 5
+                        </p>
+                    </div>
+                    <a href="tel:0549438101"><button type="button" class="btn btn-success center-block"><span class="glyphicon glyphicon-phone-alt"></span> 0549438101</button></a>
+                </div>
+                <div class="well">
+                    <iframe width="800" height="600" src="{{ product.video }}"></iframe>
+                </div>
+                <div class="well">
+                <p><span class="glyphicon glyphicon-credit-card"></span> Способы оплаты: {{ product.payment }}</p>
+                <p><span class="glyphicon glyphicon-gift"></span> Доставка:  {{ product.delivery }}</p>
+                    <a href="tel:0549438101"><button type="button" class="btn btn-success center-block"><span class="glyphicon glyphicon-phone-alt"></span> 0549438101</button></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+ {% endblock %}
