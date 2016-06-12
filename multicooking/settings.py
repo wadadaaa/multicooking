@@ -27,6 +27,7 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'raven.contrib.django.raven_compat',
         # 'easy_thumbnails',
         'storages',
         'compressor',
@@ -75,6 +76,10 @@ class Base(Configuration):
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'multicooking',
         }
+    }
+    RAVEN_CONFIG = {
+        'dsn': os.getenv('SENTRY_DSN'),
+
     }
     ATOMIC_REQUESTS = values.BooleanValue(True)
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
