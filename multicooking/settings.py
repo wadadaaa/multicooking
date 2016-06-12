@@ -97,8 +97,8 @@ class Base(Configuration):
 
     STATICFILES_FINDERS = [
         'django.contrib.staticfiles.finders.FileSystemFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        'django.contrib.staticfiles.finders.DefaultStorageFinder',
+        #'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+        #'django.contrib.staticfiles.finders.DefaultStorageFinder',
         'compressor.finders.CompressorFinder',
 
     ]
@@ -165,8 +165,8 @@ class Production(Base):
 
     COMPRESS_STORAGE = '%s.s3.Static' % project
 
-    # DEFAULT_FILE_STORAGE = '%s.s3.Media' % project
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_FILE_STORAGE = '%s.s3.Media' % project
+    # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     STATICFILES_STORAGE = '%s.s3.CachedS3BotoStorage' % project
     MEDIA_S3 = 'media'
     STATIC_S3 = 'static'
