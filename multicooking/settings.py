@@ -27,7 +27,7 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        'easy_thumbnails',
+        # 'easy_thumbnails',
         'storages',
         'compressor',
         'shop',
@@ -102,13 +102,13 @@ class Base(Configuration):
         'compressor.finders.CompressorFinder',
 
     ]
-    THUMBNAIL_ALIASES = {
-        '': {
-            'avatar': {'size': (50, 50), 'crop': True},
-            'picture': {'size': (800, 500), 'crop': True},
-            'large': {'size': (800, 600), 'crop': True},
-        },
-    }
+    # THUMBNAIL_ALIASES = {
+    #     '': {
+    #         'avatar': {'size': (50, 50), 'crop': True},
+    #         'picture': {'size': (800, 500), 'crop': True},
+    #         'large': {'size': (800, 600), 'crop': True},
+    #     },
+    # }
 
 
 class Development(Base):
