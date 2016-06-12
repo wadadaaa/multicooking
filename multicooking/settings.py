@@ -153,6 +153,7 @@ class Production(Base):
     # COMPRESS_STORAGE = '%s.s3.Static' % project
     # COMPRESS_OFFLINE = False
     #
+    ALLOWED_HOSTS = ['*']
 
     DEBUG = values.BooleanValue(False)
 
