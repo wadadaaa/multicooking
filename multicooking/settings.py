@@ -159,6 +159,12 @@ class Production(Base):
     # COMPRESS_OFFLINE = False
     #
     ALLOWED_HOSTS = ['*']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'multicooking',
+        }
+    }
 
     DEBUG = values.BooleanValue(False)
 
