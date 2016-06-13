@@ -12,7 +12,7 @@ class Catalog(models.Model):
     image = models.ImageField(
         verbose_name=u'Image', upload_to="category_pic", blank=True)
 
-    def __str__(self):              # __unicode__ on Python 2
+    def __unicode__(self):              # __unicode__ on Python 2
         return self.name
 
     def get_absolute_url(self):
@@ -39,7 +39,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):              # __unicode__ on Python 2
+    def __unicode__(self):              # __unicode__ on Python 2
         return self.name
 
     def get_absolute_url(self):
