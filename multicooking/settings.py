@@ -74,12 +74,12 @@ class Base(Configuration):
     ]
     WSGI_APPLICATION = 'multicooking.wsgi.application'
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'multicooking',
-        }
-    }
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #         'NAME': 'multicooking',
+    #     }
+    # }
     RAVEN_CONFIG = {
         'dsn': os.getenv('SENTRY_DSN'),
 
@@ -164,7 +164,7 @@ class Production(Base):
     DEBUG = values.BooleanValue(False)
     ALLOWED_HOSTS = ['*']
 
-    DATABASES['default'] = dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
