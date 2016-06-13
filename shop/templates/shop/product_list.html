@@ -8,9 +8,9 @@
             <div class="row">
             {% for object in object_list %}
               <div class="card" style="border: 1px solid #e5e5e5;">
-                <img src="{% thumbnail object.image 289x280 crop %}" alt="{{ object.name }}">
-                  <h4 class="card-title">{{ object.name }}</h4>
-                <p class="card-text">{{ object.description }}</p>
+                <img src="{% thumbnail object.image 289x280 crop %}" alt="{{ object.name }}" class="img-fluid"/>
+                  <p class="card-title" style="color: #373a3c;">{{ object.name }}</p>
+                     <p class="card-text">{{ object.description }}</p>
                    <div class="ratings text-danger float-right">
                       <i class="fa fa-heart" aria-hidden="true"></i>
                       <i class="fa fa-heart" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
               <p>
                 <a href="/shop/product/detail/{{ object.slug }}" class="btn btn-info">{{ object.sale_price }}
                     <i class="fa fa-ils" aria-hidden="true"></i></a>
-                <a href="/shop/product/detail/{{ object.slug }}" class="btn btn-primary">Описание модели</a>
+                <a href="/shop/product/detail/{{ object.slug }}" class="btn btn-primary">Описание</a>
               </p>
               </div>
             {% endfor %}

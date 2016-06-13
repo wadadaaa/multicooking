@@ -28,6 +28,7 @@ class Product(models.Model):
     description = models.TextField(blank=True, help_text="Describe product")
     video = models.URLField(blank=True, help_text="link from youtube")
     full_info = models.TextField(blank=True, help_text="Full information")
+    programs = models.TextField(blank=True, help_text="Programs")
     price = models.DecimalField(max_digits=15, decimal_places=2)
     sale_price = models.DecimalField(
         max_digits=15, decimal_places=2, null=True)

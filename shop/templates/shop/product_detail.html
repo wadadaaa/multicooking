@@ -9,7 +9,7 @@
       <div class="row">
        <div class="col-md-6">
        <img src="{% thumbnail product.image 500x500 crop %}"
-            alt="{{ product.name }}" class="image-responsive"/>
+            alt="{{ product.name }}" class="img-fluid"/>
        </div>
        <div class="col-md-6">
         <div class="col-md-12">
@@ -58,7 +58,7 @@
                     <iframe width="800" height="600" src="{{ product.video }}"></iframe>
                   </div>
               </div>
-              <div class="tab-pane" id="messages" role="tabpanel">...</div>
+              <div class="tab-pane" id="messages" role="tabpanel">{{ product.programs }}</div>
             </div>
 
          </div>

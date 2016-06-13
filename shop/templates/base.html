@@ -20,19 +20,21 @@
     </head>
 
 <body>
+<nav class="navbar navbar-static-top navbar-dark bg-inverse">
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+        &#9776; </button>
+    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <a class="navbar-brand" href="/">MARTA</a>
+    <ul class="nav navbar-nav">
+    <li class="nav-item"> <a class="nav-link" href="{% url 'product_list' %}">Мультиварки</a>
+    </li> <li class="nav-item"> <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">О нас</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="https://www.facebook.com/multicooking/"><i class="fa fa-facebook-square" aria-hidden="true"></i> Наш фейсбук</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="https://www.youtube.com/channel/UCSuskl7I-UuyyxiTZevpsvw/videos"><i class="fa fa-youtube-square" aria-hidden="true"></i> Рецепты</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="https://ok.ru/multimarta"><i class="fa fa-odnoklassniki-square" aria-hidden="true"></i> Одноклассники</a> </li>
+    </ul>
+    </div>
+</nav>
 
-    <nav class="navbar navbar-static-top navbar-dark bg-inverse">
-      <div class="container-fluid">
-        <div class="nav navbar-nav">
-        <a class="nav-item nav-link active" href="/">MARTA <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="{% url 'product_list' %}">Мультиварки</a>
-        <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#myModal">О нас</a>
-        <a class="nav-item nav-link" href="https://www.facebook.com/multicooking/"><i class="fa fa-facebook-square" aria-hidden="true"></i> Наш фейсбук</a>
-        <a class="nav-item nav-link" href="https://ok.ru/multimarta"><i class="fa fa-odnoklassniki-square" aria-hidden="true"></i> Одноклассники</a>
-        <a class="nav-item nav-link" href="https://www.youtube.com/channel/UCSuskl7I-UuyyxiTZevpsvw/videos"><i class="fa fa-youtube-square" aria-hidden="true"></i> Рецепты</a>
-        </div>
-      </div>
-    </nav>
 
 
     <section class="jumbotron text-xs-center">
@@ -58,7 +60,8 @@
         <p class="pull-xs-right">
           <a href="#">Наверх</a>
         </p>
-        <p>МАРТА &copy; Мультиварки в Израиле 2016</p>
+        <p>МАРТА &copy; Мультиварки в Израиле 2016 <p><a href="tel:0549438101">
+                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> 0549438101</a></p>
       </div>
     </footer>
 
