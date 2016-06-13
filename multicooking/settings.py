@@ -5,7 +5,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 from configurations import Configuration, values
+import dj_database_url
+from django.conf.global_settings import DATABASES
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -158,15 +161,10 @@ class Production(Base):
     # COMPRESS_STORAGE = '%s.s3.Static' % project
     # COMPRESS_OFFLINE = False
     #
-    ALLOWED_HOSTS = ['*']
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'multicooking',
-        }
-    }
-
     DEBUG = values.BooleanValue(False)
+    ALLOWED_HOSTS = ['*']
+
+    DATABASES['default'] = dj_database_url.config(default=os.getenv('DATABASE_URL'))
 
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
