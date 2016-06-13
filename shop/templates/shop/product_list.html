@@ -1,39 +1,31 @@
 {% extends "base.html" %}
-{#{% load thumbnail %}#}
-{% block title %} &bull; Product List{% endblock %}
+{% load thumbnail %}
+{% block title  %}Каталог мультиварок{% endblock %}
 
 {% block content %}
-     <div class="row text-center">
-        {% for object in object_list %}
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    {% if object.image %}
-                    <img src="{{ object.image.url }}" alt="{{ object.name }}">
-                    {% else %}
-                    <p>No img</p>
-                    {% endif %}
-                    <div class="caption">
-                        <h3 class="text-primary">{{ object.name }}</h3>
-                        <p>{{ object.description }}</p>
-                        <div class="ratings text-danger">
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                        </p>
-                    </div>
-                    <h4 class="text-center text-danger"><del>{{ object.price }} ₪ </del></h4>
-
-                       <h4 class="text-primary">{{ object.sale_price }} ₪ </h4>
-                        <p>
-{#                            <a href="#" class="btn btn-primary">{{ object.sale_price }} ₪</a>#}
-                            <a href="/shop/product/detail/{{ object.slug }}" class="btn btn-primary">Описание модели</a>
-                        </p>
-                    </div>
-                </div>
+    <div class="album text-muted">
+      <div class="container">
+            <div class="row">
+            {% for object in object_list %}
+              <div class="card" style="border: 1px solid #e5e5e5;">
+                <img src="{% thumbnail object.image 289x280 crop %}" alt="{{ object.name }}">
+                  <h4 class="card-title">{{ object.name }}</h4>
+                <p class="card-text">{{ object.description }}</p>
+                   <div class="ratings text-danger float-right">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                   </div>
+              <p>
+                <a href="/shop/product/detail/{{ object.slug }}" class="btn btn-info">{{ object.sale_price }}
+                    <i class="fa fa-ils" aria-hidden="true"></i></a>
+                <a href="/shop/product/detail/{{ object.slug }}" class="btn btn-primary">Описание модели</a>
+              </p>
+              </div>
+            {% endfor %}
             </div>
-        {% endfor %}
+      </div>
     </div>
 {% endblock %}

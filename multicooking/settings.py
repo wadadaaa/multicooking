@@ -31,7 +31,7 @@ class Base(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'raven.contrib.django.raven_compat',
-        # 'easy_thumbnails',
+        'easy_thumbnails',
         'storages',
         'compressor',
         'shop',
@@ -110,13 +110,13 @@ class Base(Configuration):
         'compressor.finders.CompressorFinder',
 
     ]
-    # THUMBNAIL_ALIASES = {
-    #     '': {
-    #         'avatar': {'size': (50, 50), 'crop': True},
-    #         'picture': {'size': (800, 500), 'crop': True},
-    #         'large': {'size': (800, 600), 'crop': True},
-    #     },
-    # }
+    THUMBNAIL_ALIASES = {
+        '': {
+            'avatar': {'size': (50, 50), 'crop': True},
+            'picture': {'size': (800, 500), 'crop': True},
+            'large': {'size': (800, 600), 'crop': True},
+        },
+    }
 
 
 class Development(Base):
@@ -144,7 +144,7 @@ class Production(Base):
     #
     # DEFAULT_FILE_STORAGE = '%s.s3.Media' % project
     # STATICFILES_STORAGE = '%s.s3.Static' % project
-    # THUMBNAIL_DEFAULT_STORAGE = '%s.s3.Media' % project
+    THUMBNAIL_DEFAULT_STORAGE = '%s.s3.Media' % project
     #
     #
     # MEDIA = 'media'
