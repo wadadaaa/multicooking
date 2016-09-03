@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title  %}Отзывы и обзоры мультиварок{% endblock %}
+
+{% block content %}
+{% for object in object_list %}
+    <ul class="resources">
+    <li>
+      <img src="{{ object.avatar.url }}" alt="{{ object.name }}">
+      <div class="resource_info">
+        <h2>{{ object.name }}</h2>
+        <a href="/shop/testimonial/detail/{{ object.slug }}" class="button">Описание</a>
+      </div>
+    </li>
+  </ul>
+{% endfor %}
+{% endblock %}

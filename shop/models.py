@@ -45,3 +45,20 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop_detail', kwargs={'slug': self.slug})
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=80)
+    slug = models.SlugField(unique=True)
+    avatar = models.ImageField(
+        verbose_name=u'Photo', upload_to="photo_ava", blank=True)
+    image = models.ImageField(
+        verbose_name=u'Image', upload_to="image_pic", blank=True)
+    testimonial = models.TextField(blank=True, help_text="Testimonial")
+    url = models.URLField(blank=True)
+
+    def __unicode__(self):              # __unicode__ on Python 2
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('testimonials_detail', kwargs={'slug': self.slug})

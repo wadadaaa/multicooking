@@ -4,9 +4,8 @@ from django.views.generic import View, ListView, DetailView
 from shop.models import (
     Catalog,
     Product,
-
+    Testimonial,
 )
-
 
 class ProductMixin(object):
     model = Product
@@ -29,6 +28,21 @@ DIRECTION_WEIGHT = {
 }
 
 
+class TestimonialMixin(object):
+    model = Testimonial
+
+
+class TestimonialList(TestimonialMixin, ListView):
+    pass
+
+
+class TestimonialDetail(TestimonialMixin, DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(TestimonialDetail, self).get_context_data(**kwargs)
+        context['testimonials'] = Testimonial.objects.all()
+        return context
+
+
 class CatalogMixin(object):
     model = Catalog
 
@@ -43,6 +57,3 @@ class CatalogDetail(CatalogMixin, DetailView):
         context['products'] = Product.objects.filter(catalog=Catalog)
 
         return context
-
-
-

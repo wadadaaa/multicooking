@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title %} &bull; Product List{% endblock %}
+
+{% block content %}
+
+<ul class="product">
+<li>
+  <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+
+</li>
+<li>
+  <div class="product_info">
+    <!-- <h2></h2> -->
+    <p>{{ testimonial.testimonial|linebreaks }}</p>
+    <h2>Программы</h2>
+    <p>{{ testimonial.testimonial|linebreaks }}</p>
+    <a href="{{ testimonial.url }}">Источник</a>
+    <br>
+      <a href="tel:0549438101" class="button">0549438101</a>
+    <br>
+  </div>
+</li>
+</ul>
+
+ {% endblock %}
